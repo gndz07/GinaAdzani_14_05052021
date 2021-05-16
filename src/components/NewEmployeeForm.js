@@ -1,13 +1,19 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import SelectForm from './SelectForm.js';
 import '../styles/new-employee-form.css';
+import { departments } from '../constants/departments.js';
+import { stateList } from '../constants/state.js';
 
 export default function NewEmployeeForm() {
-	const departments = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
+	const stateNames = [];
+    stateList.map((state) => {
+        stateNames.push(state.name);
+    });
 
 	return (
 		<div className="container">
-            <a href="employee-list.html">View Current Employees</a>
+            <NavLink to='/employee-list'>View Current Employees</NavLink>
             <h2>Create Employee</h2>
             <form action="#" id="create-employee">
                 <label htmlFor="first-name">First Name</label>
@@ -32,7 +38,7 @@ export default function NewEmployeeForm() {
                     <input id="city" type="text" />
 
                     <label htmlFor="state">State</label>
-                    <select name="state" id="state"></select>     
+                    <SelectForm name="state" data={stateNames} />     
 
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" />
