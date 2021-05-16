@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewEmployee from './pages/NewEmployee.js';
+import PageRouter from './apps/PageRouter.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NewEmployee />
+    <PageRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
