@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SelectForm from './SelectForm.js';
+import DateSelector from './DateSelector.js';
 import '../styles/new-employee-form.css';
 import { departments } from '../constants/departments.js';
 import { stateList } from '../constants/state.js';
@@ -23,10 +24,10 @@ export default function NewEmployeeForm() {
                 <input type="text" id="last-name" />
 
                 <label htmlFor="date-of-birth">Date of Birth</label>
-                <input id="date-of-birth" type="text" />			
+                <DateSelector />			
 
                 <label htmlFor="start-date">Start Date</label>
-                <input id="start-date" type="text" />
+                <DateSelector />
 
                 <fieldset className="address">
                     <legend>Address</legend>
