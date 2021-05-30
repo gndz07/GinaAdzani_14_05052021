@@ -3,6 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 50%;
+    margin: auto;
+    background-color: #fff;
+    padding-top: 2rem;
 }
 
 label {
@@ -13,4 +17,30 @@ label {
 
 .address {
     margin-top: 10px;
+    width: 95%;
+}
+
+.address input {
+    width: 95%;
+}
+
+input, select {
+    width: 100%;
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.submit-btn {
+    width:  50%;
+    margin: 2rem 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #000000;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
 }

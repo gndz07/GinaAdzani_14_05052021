@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker, { changeMonth } from "react-datepicker";
 import { getMonth, getYear } from 'date-fns';
 import range from "lodash/range";
@@ -74,6 +74,7 @@ export default function DateSelector(props) {
 			onChange={props.onChange}
 			dateFormat="dd-MM-yyyy"
 			name={props.name}
+			todayButton=<i class="fas fa-home"></i>
 		/>
 	);
 };

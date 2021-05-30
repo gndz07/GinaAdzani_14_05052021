@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 import PageRouter from './apps/PageRouter.js';
 import reportWebVitals from './reportWebVitals';
-import { persistor, store } from './store'
+import { persistor, store } from './store';
+import './styles/root.css'
 
 ReactDOM.render(
   <React.StrictMode>

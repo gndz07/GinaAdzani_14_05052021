@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { NavLink } from 'react-router-dom';
 import SelectForm from './SelectForm.js';
 import DateSelector from './DateSelector.js';
 import '../styles/new-employee-form.css';
 import Actions from '../actions';
-import { verifyNumber, verifyString, verifyDate } from '../libs/componentsUtils.js';
 import { departments } from '../constants/departments.js';
 import { stateList } from '../constants/state.js';
 
-export default function NewEmployeeForm() {
+export default function NewEmployeeForm(props) {
 	const stateNames = [];
     stateList.map((state) => {
         stateNames.push(state.name);
@@ -25,9 +23,9 @@ export default function NewEmployeeForm() {
     const [startDate, setStartDate] = useState('');
     const [street, setStreet] = useState('');
     const [city, setCity] = useState('');
-    const [stateName, setStateName] = useState('');
+    const [stateName, setStateName] = useState('Alabama');
     const [zipCode, setZipCode] = useState('');
-    const [department, setDepartment] = useState('');
+    const [department, setDepartment] = useState('Sales');
 
     const fillForm = (e, changeState) => {
         changeState(e.target.value);
@@ -46,23 +44,37 @@ export default function NewEmployeeForm() {
     }
 
     const onSubmit = () => {
-        dispatch(Actions.addEmployee({
-            firstName: capitalize(firstName),
-            lastName: capitalize(lastName),
-            dob,
-            startDate,
-            street: capitalize(street),
-            city: capitalize(city),
-            stateName,
-            zipCode,
-            department
-        }))
+        if (firstName.length > 0 
+            && lastName.length > 0 
+            && dob.length > 0 
+            && startDate.length > 0 
+            && street.length > 0
+            && city.length > 0
+            && stateName.length > 0
+            && zipCode.length > 0
+            && department.length > 0
+            ) {
+                dispatch(Actions.addEmployee({
+                    firstName: capitalize(firstName),
+                    lastName: capitalize(lastName),
+                    dob,
+                    startDate,
+                    street: capitalize(street),
+                    city: capitalize(city),
+                    stateName,
+                    zipCode,
+                    department
+                }))
+            props.onSubmit();
+        } else {
+            window.alert("Please fill in all of the required fields");
+        }
+        
     }
 
 
 	return (
 		<div className="container">
-            <NavLink to='/employee-list'>View Current Employees</NavLink>
             <h2>Create Employee</h2>
             <form action="#" id="create-employee">
                 <label htmlFor="first-name">First Name</label>
@@ -87,17 +99,17 @@ export default function NewEmployeeForm() {
                     <input id="city" type="text" name="city" onBlur={e => fillForm(e, setCity)}/>
 
                     <label htmlFor="state">State</label>
-                    <SelectForm name="state" data={stateNames} name="state" value={stateName} onChange={e => fillForm(e, setStateName)}/>     
+                    <SelectForm name="state" data={stateNames} value={stateName} onChange={e => fillForm(e, setStateName)}/>     
 
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" name="zip-code" onBlur={e => fillForm(e, setZipCode)}/>
                 </fieldset>
 
                 <label htmlFor="department">Department</label>
-                <SelectForm name="department" data={departments} name="department" value={department} onChange={e => fillForm(e, setDepartment)}/>
+                <SelectForm name="department" data={departments} value={department} onChange={e => fillForm(e, setDepartment)}/>
             </form>
 
-            <button onClick={onSubmit}>Save</button>
+            <button onClick={onSubmit} className="submit-btn">Save</button>
         </div>
 	)
 }
