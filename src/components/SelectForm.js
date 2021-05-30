@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function SelectForm(props) {
 	return (
@@ -8,4 +9,10 @@ export default function SelectForm(props) {
         	))}
         </select>
 	)
+};
+
+SelectForm.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 }

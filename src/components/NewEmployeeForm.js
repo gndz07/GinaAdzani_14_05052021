@@ -6,10 +6,12 @@ import '../styles/new-employee-form.css';
 import Actions from '../actions';
 import { departments } from '../constants/departments.js';
 import { stateList } from '../constants/state.js';
+import PropTypes from 'prop-types';
+
 
 export default function NewEmployeeForm(props) {
 	const stateNames = [];
-    stateList.map((state) => {
+    stateList.forEach((state) => {
         stateNames.push(state.name);
     });
 
@@ -112,4 +114,8 @@ export default function NewEmployeeForm(props) {
             <button onClick={onSubmit} className="submit-btn">Save</button>
         </div>
 	)
+}
+
+NewEmployeeForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }

@@ -3,6 +3,7 @@ import DatePicker, { changeMonth } from "react-datepicker";
 import { getMonth, getYear } from 'date-fns';
 import range from "lodash/range";
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from 'prop-types';
 
 export default function DateSelector(props) {
 	const years = range(1960, getYear(new Date()) + 1, 1);
@@ -78,3 +79,9 @@ export default function DateSelector(props) {
 		/>
 	);
 };
+
+DateSelector.propTypes = {
+	name: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	selected: PropTypes.string
+}
