@@ -4,8 +4,7 @@ import { getMonth, getYear } from 'date-fns';
 import range from "lodash/range";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function DateSelector() {
-	const [startDate, setStartDate] = useState(null);
+export default function DateSelector(props) {
 	const years = range(1990, getYear(new Date()) + 1, 1);
 	const months = [
 	  "January",
@@ -71,8 +70,10 @@ export default function DateSelector() {
 					</button>
 				</div>
 			)}
-			selected={startDate} 
-			onChange={date => setStartDate(date)}
+			selected={props.selected} 
+			onChange={props.onChange}
+			dateFormat="dd-MM-yyyy"
+			name={props.name}
 		/>
 	);
 };
