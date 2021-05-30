@@ -6,6 +6,7 @@
 
 .MuiPaper-root {
 	margin-bottom: 2rem;
+	border-radius: 5px;
 }
 
 .link-menu {

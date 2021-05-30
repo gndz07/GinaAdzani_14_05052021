@@ -21,7 +21,7 @@ export default function NewEmployee() {
 				isActive={isModalActive} 
 				refresh={true}
 				backgroundStyle={{ width: "100vw", height: "100vw" }}
-				contentStyle={{ marginTop: "40%" }}
+				contentStyle={{ marginTop: "40%", borderRadius: "5px" }}
 			/>
 		</main>
 	)
