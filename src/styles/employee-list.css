@@ -1,4 +1,18 @@
+.list-container{
+	width: 90%;
+	margin: auto;
+	margin-top: 3rem;
+}
+
+.MuiPaper-root {
+	margin-bottom: 2rem;
+}
+
 .link-menu {
-	margin-left: 50%;
-	text-decoration: none;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    margin: 2rem 0;
 }

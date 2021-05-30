@@ -1,13 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import PageTitle from '../components/PageTitle.js';
-import EmployeeTable from '../components/EmployeeTable.js';
+import EmployeeDataTable from '../components/EmployeeDataTable.js';
 import '../styles/employee-list.css';
 
 export default function EmployeeList() {
 	return (
-		<div>
-			<PageTitle title="Current Employees" />
-			<EmployeeTable />
+		<div className="list-container">
+			<EmployeeDataTable />
 			<NavLink to='/' className="link-menu">Home</NavLink>
 		</div>
 	)
